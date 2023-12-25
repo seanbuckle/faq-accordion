@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+:root {
+  --white-color: oklch(100% 0 0);
+  --pink-color: oklch(58.29% 0.3106 311.25);
+  --light-pink-color: oklch(96.18% 0.0276 311.70800875992836);
+  --pale-purple-color: oklch(30% 0.1508 328);
+  --dark-purple-color: oklch(24.99% 0.1281 322.31);
+  --dark-purple-shadow-color: oklch(24.99% 0.1281 322.31 / 0.1);
+}
+
+:root {
+  --font-family: "Work Sans", sans-serif;
+  --display: 700 3.5rem/normal var(--font-family);
+  --title: 600 1.125rem/normal var(--font-family);
+  --body: 400 1rem/1.5rem var(--font-family);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-outline-color: var(--pink-color);
+  outline-color: var(--pink-color);
+  outline-offset: 8px;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  font: var(--body);
+  background-color: var(--light-pink-color);
+}
+
+::selection {
+  background-color: var(--pink-color);
+  color: var(--white-color);
+}
+
+main {
+  padding: 0 1.5rem;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  background: url("../images/background-pattern-mobile.svg") no-repeat;
+}
+@media (width > 375px) {
+  main {
+    background: url("../images/background-pattern-desktop.svg") no-repeat;
+  }
+}
+@media (width > 375px) and (width > 1440px) {
+  main {
+    background-size: 100% auto;
+  }
+}
+
+.card {
+  width: min(600px, 100%);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+  box-shadow: 0px 32px 56px 0px var(--dark-purple-shadow-color);
+}
+.card h1 {
+  padding-bottom: 2rem;
+  font: var(--display);
+  color: var(--dark-purple-color);
+}
+.card h1::before {
+  content: url("../images/icon-star.svg");
+}
+.card__details {
+  border-bottom: 1px solid var(--light-pink-color);
+  transition: all 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion) {
+  .card__details {
+    transition: none;
+  }
+}
+.card__details--last {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.card__details[open] {
+  padding-bottom: 1.5rem;
+}
+.card__details[open] .card__summary::after {
+  content: url("../images/icon-minus.svg");
+  transition: all 0.5s ease-in-out;
+}
+.card__summary {
+  padding: 1.5rem 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: var(--title);
+  color: var(--dark-purple-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.card__summary:hover {
+  color: var(--pink-color);
+}
+.card__summary::marker {
+  display: none;
+}
+.card__summary::after {
+  content: url("../images/icon-plus.svg");
+}
+.card__summary--first {
+  padding-top: 0;
+}
+.card__first-summary {
+  padding-top: 0;
+}
+.card p {
+  font: var(--body);
+  color: var(--pale-purple-color);
+}
+
+.attribution {
+  display: grid;
+  place-items: center;
+  padding: 1rem 1.75rem;
+}
+.attribution a {
+  color: var(--pink-color);
+  text-decoration: none;
+}
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=style.css.map */
